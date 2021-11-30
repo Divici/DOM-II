@@ -54,7 +54,20 @@ images.forEach(img =>{
 
 // zoom on wheel
 
+const lastImg = document.querySelector('.content-destination img');
 
+let scale = 1;
+function zoom(event, img){
+    event.preventDefault();
+    scale += event.deltaY * -0.01;
+
+    scale = Math.min(Math.max(0.125, scale), 4); //restricts scale
+    img.style.transform = `scale(${scale})`; //scale transform
+}
+
+lastImg.addEventListener('wheel', (event) =>{
+    zoom(event, lastImg);
+});
 
 
 
