@@ -1,4 +1,10 @@
 import './less/index.less'
 
-// Your code goes here!
-//test push
+// on click event
+const signupButton = document.querySelectorAll('.content-pick .btn');
+
+signupButton.forEach(btn => {
+    btn.addEventListener('click', (event)=>{
+        btn.textContent = 'Thank you!';
+    }) 
+ });
