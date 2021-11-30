@@ -8,3 +8,18 @@ signupButton.forEach(btn => {
         btn.textContent = 'Thank you!';
     }) 
  });
+
+ // on mouseover and mouseout
+
+ const links = document.querySelectorAll('nav a');
+ 
+ links.forEach(link => {
+    link.addEventListener('mouseover', event =>{
+        link.style.color = 'red';
+    })
+    link.addEventListener('mouseout', event =>{
+        link.style.color = '';
+    })
+ });
+
+ 
