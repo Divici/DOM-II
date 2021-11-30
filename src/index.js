@@ -1,5 +1,11 @@
 import './less/index.less'
 
+// on load
+
+window.addEventListener("load", (event) =>{
+    alert('Your page has loaded successfully!');
+});
+
 // on click event
 
 const signupButton = document.querySelectorAll('.content-pick .btn');
@@ -15,10 +21,10 @@ signupButton.forEach(btn => {
  const links = document.querySelectorAll('nav a');
  
 links.forEach(link => {
-    link.addEventListener('mouseover', event =>{
+    link.addEventListener('mouseover', (event) =>{
         link.style.color = 'red';
     })
-    link.addEventListener('mouseout', event =>{
+    link.addEventListener('mouseout', (event) =>{
         link.style.color = '';
     })
 });
@@ -26,13 +32,24 @@ links.forEach(link => {
 // double click
 
 const images = document.querySelectorAll('.img-content img');
-
+let originSize = true;
 const shrink = (event, img) => {
-    img.style.width = '50%';
+        img.style.width = '50%';
+        originSize = false;
+}
+const expand = (event, img) => {
+        img.style.width = '100%';
+        originSize = true;
 }
 
 images.forEach(img =>{
-    img.addEventListener('dblclick', (event) => shrink(event, img))
+    if(originSize === true){
+        img.addEventListener('dblclick', (event) => shrink(event, img))
+    }
+    else{
+        img.addEventListener('dblclick', (event) => expand(event, img))
+    }
+    
 });
 
 // zoom on wheel
