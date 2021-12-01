@@ -70,5 +70,32 @@ lastImg.addEventListener('wheel', (event) =>{
 });
 
 
+// select text
+
+// function logSelection(event) {
+//     const log = document.querySelector('.intro p');
+//     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+//     log.style.color = 'red';
+//   }
+
+// const textLog = document.querySelector('.intro h2');
+
+//     textLog.addEventListener('select', logSelection);
+
+const textLog = document.querySelectorAll('.container p');
+
+textLog.forEach(txt => {
+    txt.addEventListener('select', (event) =>{
+        txt.style.color = 'red';
+    })
+});
+
+//Could not get this to work as planned
+
 
 // key press down
+document.addEventListener('keydown', (event) =>{
+    if(event.key === 'Escape'){
+        alert(`${event.key} is not a valid input`);
+    }
+});
